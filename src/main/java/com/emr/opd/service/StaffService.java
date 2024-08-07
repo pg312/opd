@@ -13,8 +13,8 @@ public class StaffService {
     @Autowired
     StaffRepository staffRepository;
     @RabbitListener(queues = {"${spring.rabbitmq.queue.name}"})
-    public StaffDto save(StaffDto staff){
-        return staffRepository.save(staff);
+    public void save(StaffDto staff){
+        staffRepository.save(staff);
     }
 }
 
